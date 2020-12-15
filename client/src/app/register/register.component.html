@@ -1,0 +1,50 @@
+<div class="container">
+    <form #registerForm="ngForm" (ngSubmit)="register()" autocomplete="off">
+        <h2 style="text-align: center;">Create your account</h2>
+        <hr>
+        <div class="form-group input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text"><i class="fa fa-user"></i></span>
+            </div>
+            <input name="UserName" [(ngModel)]="model.UserName" class="form-control" placeholder="Username" type="text">
+        </div> <!-- form-group// -->
+        <div class="form-group input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text"><i class="fa fa-address-book"></i></span>
+            </div>
+            <input name="firstname" [(ngModel)]="model.firstname" class="form-control" placeholder="First name" type="text">
+        </div> <!-- form-group// -->
+        <div class="form-group input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text"> <i class="fa fa-address-book-o"></i> </span>
+            </div>
+            <input name="lastname" [(ngModel)]="model.lastname" class="form-control" placeholder="Last name" type="text">
+        </div> <!-- form-group// -->
+        <div class="form-group input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
+            </div>
+            <input name="email" [(ngModel)]="model.email" class="form-control" placeholder="Email address" type="email">
+        </div> <!-- form-group// -->
+        <div class="form-group input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text"> <i class="fa fa-phone"></i> </span>
+            </div>
+            <select class="custom-select" style="max-width: 80px;">
+                <option selected="">+61</option>
+                <option value="1">+64</option>
+            </select>
+            <input name="contactnumber" [(ngModel)]="model.contactnumber" class="form-control" placeholder="Contact number" type="text">
+        </div> <!-- form-group// -->
+        <div class="form-group input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+            </div>
+            <input name="createpassword" [(ngModel)]="model.password" class="form-control" placeholder="Create password" type="password">
+        </div> <!-- form-group// -->                                  
+        <div class="form-group">
+            <button type="submit" class="btn btn-success btn-block">Create Account</button>
+            <button type="submit" class="btn btn-secondary btn-block" (click)="cancel()">Cancel</button>
+        </div> <!-- form-group// -->                                                                   
+    </form>
+</div>

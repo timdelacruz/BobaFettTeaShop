@@ -80,7 +80,7 @@ namespace API.Controllers
             var customer = await _context.Customer.FirstOrDefaultAsync(x => x.UserName == customerLoginDto.Username);
 
             if (customer == null)
-                return Unauthorized();
+                return Unauthorized("Invalid username or password.");
             
             if (!VerifyPasswordHash(customerLoginDto.Password, customer.PasswordHash, customer.PasswordSalt))
                 return null;      

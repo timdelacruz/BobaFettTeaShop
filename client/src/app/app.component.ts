@@ -1,5 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { User } from './_models/user';
+import { AccountService } from './_services/account.service';
+import { faCoffee } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-root',
@@ -9,21 +12,19 @@ import { Component, OnInit } from '@angular/core';
 export class AppComponent implements OnInit {
   title = 'Boba Fett Tea Shop';
   customers: any;
+  faCoffee = faCoffee; 
 
-  constructor(private http: HttpClient) {}
+  constructor(private accountService: AccountService) {}
 
   // tslint:disable-next-line: typedef
   ngOnInit() {
     // tslint:disable-next-line: no-unused-expression
-    this.getCustomers();
+    this.setCurrentUser();
   }
 
-  // tslint:disable-next-line: typedef
-  getCustomers() {
-    this.http.get('https://localhost:5001/api/customer').subscribe(response => {
-      this.customers = response;
-    }, error => {
-      console.log(error);
-    });
+  setCurrentUser() {
+    const user: User = JSON.parse(localStorage.getItem('user'));
+    this.accountService.setCurrentUser(user);
   }
+
 }
